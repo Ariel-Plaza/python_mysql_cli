@@ -92,7 +92,7 @@ def main():
         elif args.operacion == 'update':
             if not validar_argumentos(args.id, '--id', 'python3 main.py update --id 1 --value 100'):
                 return
-            if not validar_argumentos(args.value, '--value', 'python3 main.py update --id 1 --value 100'):
+            if not validar_argumentos(args.value, '--value', 'python3 main.py update --id 1 --value 100', min_valor=0):
                 return
             actualizar_value = actualizar_registro(args.id, args.value)
             if not actualizar_value:
