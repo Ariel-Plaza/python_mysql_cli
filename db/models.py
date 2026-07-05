@@ -28,4 +28,4 @@ class Records(Base):
         # Valida que el valor no sea negativo (Valores inválidos)
         if value is not None and value < 0:
             raise ValueError("El valor debe ser una cifra positiva (>= 0)")
-         return value
+        return value
