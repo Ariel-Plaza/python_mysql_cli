@@ -37,7 +37,7 @@ def main():
         parser_list = subparsers.add_parser('list', help='Muestra todos los registros')
 
         # Consultar registro por ID
-        parser_get = subparsers.add_parser('get', help='Agrega un nuevo registro')
+        parser_get = subparsers.add_parser('get', help='Consulta un registro por ID')
         parser_get.add_argument('--id', type=int , help='ID del registro')
 
         # Modificar un registro existente
