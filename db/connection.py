@@ -23,7 +23,7 @@ DATABASE_URL = (
     )
 
 # Creacion instancia de motor SQLAlchemy integrando url y parametros de control
-engine = Engine = create_engine(
+engine = create_engine(
     DATABASE_URL,
     # tiempo maximo(se) de conexion en el pool
     pool_recycle=3600,
@@ -68,6 +68,7 @@ def generador_sesion():
             print(f"- Host actual: {HOST}:{PORT}")
         else:
             print(f"Error operativo de la base de datos: {err}")
+        raise
             
     except DBAPIError as err:
         # Verifico error de conexion con codigo
@@ -82,6 +83,7 @@ def generador_sesion():
             print(f"- Host actual: {HOST}:{PORT}")
         else:
             print(f"Error de DB-API: {err}")
+        raise
         
     except Exception as err:
         print(f"Error inesperado con la base de datos{err}")  
@@ -89,25 +91,3 @@ def generador_sesion():
     finally:
         # se cierra la conexión
         db.close()
-
-
-
-# Test de conexion a la base de datos.
-
-# def test_connection() -> bool:
-#     """Verifica que la conexión a la base de datos funcione"""
-#     try:
-#         from sqlalchemy import text
-#         with engine.connect() as conn:
-#             result = conn.execute(text("SELECT 1 AS test"))
-#             print(f"✅ Conexión realizada: {result.fetchone()}")
-#             return True
-#     except Exception as e:
-#         print(f"❌ Error de conexión: {e}")
-#         return False
-
-# test_connection()
-
-# Clase base para los modelos
-class Base(DeclarativeBase):
-    pass
