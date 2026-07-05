@@ -25,8 +25,7 @@ class Records(Base):
         # valida si valor existe
         if value is None:
             raise ValueError("El valor es obligatorio")  
-        return value
         # Valida que el valor no sea negativo (Valores inválidos)
         if value is not None and value < 0:
             raise ValueError("El valor debe ser una cifra positiva (>= 0)")
-        
+         return value
