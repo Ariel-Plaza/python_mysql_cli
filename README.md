@@ -2,15 +2,14 @@
 
 python_mysql_cli/
 ├── db/
-   ├── connection.py       # Conexión a MySQL
-   ├── models.py           # Modelos y operaciones con la Base de Datos
-├── env/                   # Entorno
-├── services  
-   ├── record_service.py   # Lógica de negocio
-├── main.py                # Punto de entrada de la aplicacion
-├── requirements.txt       # Dependencias del proyecto
-├── README.md              # Documentación
-
+│   ├── connection.py       # Conexión a MySQL
+│   └── models.py           # Modelos y operaciones con la Base de Datos
+├── env/                    # Entorno virtual
+├── services/
+│   └── record_service.py   # Lógica de negocio
+├── main.py                 # Punto de entrada de la aplicación
+├── requirements.txt        # Dependencias del proyecto
+└── README.md               # Documentación
 ## Entorno
 
 En la terminal se deben ejecutar los siguientes comandos
@@ -154,7 +153,7 @@ Cada comando cuenta con validaciones de seguridad para garantizar integridad de 
 1. Agregar un registro (`add`)
    Creación de un nuevo registro en la base de datos.
 
-- **Validación:** Nombre es obligatorio (máx. 100 caracteres) y el valor debe ser un entero positivo.
+- **Validación:** Nombre es obligatorio (máx. 100 caracteres) y el valor debe ser un entero mayor o igual a cero.
 
 ```bash
 python3 main.py add --name "Sensor" --value 85
